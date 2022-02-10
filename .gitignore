@@ -30,4 +30,6 @@ build/
 
 !maven-wrapper.jar
 
+*.iml
+.idea/
 
