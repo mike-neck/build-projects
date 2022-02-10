@@ -1,0 +1,36 @@
+name: Gradle-JUnit5
+on:
+  push:
+    paths:
+      - 'gradle-project-junit5/**'
+
+jobs:
+  run-tests:
+    strategy:
+      matrix:
+        os:
+        - ubuntu
+        - macosx
+        - windows
+    name: run-tests on "${{matrix.os}}"
+    runs-on: "${{matrix.os}}-latest"
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: java setup
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: zulu
+
+      - name: validate gradle
+        uses: gradle/wrapper-validation-action@v1
+        with:
+          build-root-directory: gradle-project-junit5
+
+      - name: build
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: test
+          build-root-directory: gradle-project-junit5
