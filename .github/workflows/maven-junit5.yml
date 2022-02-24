@@ -1,4 +1,4 @@
-name: Gradle-JUnit5
+name: Maven-JUnit5
 on:
   push:
     paths:
@@ -13,7 +13,7 @@ jobs:
         - ubuntu
         - macosx
         - windows
-    name: run-tests on "${{matrix.os}}"
+    name: maven JUnit5 on "${{matrix.os}}"
     runs-on: "${{matrix.os}}-latest"
     steps:
       - name: checkout
