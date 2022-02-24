@@ -2,7 +2,7 @@ name: Gradle-JUnit5
 on:
   push:
     paths:
-      - 'gradle-project-junit5/**'
+      - 'maven-project-junit5/**'
   workflow_dispatch: {}
 
 jobs:
@@ -25,13 +25,5 @@ jobs:
           java-version: '17'
           distribution: zulu
 
-      - name: validate gradle
-        uses: gradle/wrapper-validation-action@v1
-        with:
-          build-root-directory: gradle-project-junit5
-
       - name: build
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: test
-          build-root-directory: gradle-project-junit5
+        run: ./mvnw test
