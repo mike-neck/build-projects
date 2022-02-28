@@ -1,0 +1,30 @@
+name: Maven-JUnit4+3
+on:
+  push:
+    paths:
+      - 'maven-project-junit43/**'
+  workflow_dispatch: {}
+
+jobs:
+  run-tests:
+    strategy:
+      matrix:
+        os:
+        - ubuntu
+        - macosx
+        - windows
+    name: maven JUnit5 on "${{matrix.os}}"
+    runs-on: "${{matrix.os}}-latest"
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: java setup
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: zulu
+
+      - name: build
+        run: ./mvnw test
+        working-directory: maven-project-junit43
