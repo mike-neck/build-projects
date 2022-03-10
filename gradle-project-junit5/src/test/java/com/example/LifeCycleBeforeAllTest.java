@@ -16,5 +16,8 @@ class LifeCycleBeforeAllTest {
     void setupBasic() {}
 
     @Test
+    void failure2() {}
+
+    @Test
     void failure() {}
 }
