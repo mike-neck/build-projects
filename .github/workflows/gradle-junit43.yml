@@ -13,7 +13,7 @@ jobs:
         - ubuntu
         - macosx
         - windows
-    name: gradle JUnit5 on "${{matrix.os}}"
+    name: gradle JUnit4+3 on "${{matrix.os}}"
     runs-on: "${{matrix.os}}-latest"
     steps:
       - name: checkout
