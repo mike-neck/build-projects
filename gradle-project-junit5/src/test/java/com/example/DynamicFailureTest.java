@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.TestFactory;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 class DynamicFailureTest {
 
@@ -21,7 +22,7 @@ class DynamicFailureTest {
 
             @Override
             public DynamicTest next() {
-                return DynamicTest.dynamicTest("test", () -> {});
+                throw new NoSuchElementException("test");
             }
         };
     }
