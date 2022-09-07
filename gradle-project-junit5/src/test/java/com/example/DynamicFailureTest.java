@@ -13,10 +13,15 @@ class DynamicFailureTest {
 
     @TestFactory
     Iterable<DynamicTest> tests() {
-        return new Iterable<DynamicTest>() {
+        return () -> new Iterator<>() {
             @Override
-            public Iterator<DynamicTest> iterator() {
+            public boolean hasNext() {
                 throw new IllegalStateException("test");
+            }
+
+            @Override
+            public DynamicTest next() {
+                return DynamicTest.dynamicTest("test", () -> {});
             }
         };
     }
