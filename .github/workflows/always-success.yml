@@ -17,4 +17,4 @@ jobs:
         run: sleep 60
 
       - name: "ステップ success"
-        run: "echo success"
+        run: echo foo | grep bar
