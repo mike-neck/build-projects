@@ -16,5 +16,5 @@ jobs:
       - name: "ステップ sleep"
         run: sleep 60
 
-      - name: "ステップ success"
-        run: echo foo | grep bar
+      - name: "ステップ failure"
+        run: echo foo | grep baz
