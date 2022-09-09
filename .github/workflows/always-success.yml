@@ -1,0 +1,14 @@
+name: "いつも成功"
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  success:
+    runs-on: ubuntu-latest
+    name: "成功"
+    steps:
+      - name: "ステップはこれだけ"
+        run: "echo '成功'"
