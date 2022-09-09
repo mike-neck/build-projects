@@ -10,5 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     name: "成功"
     steps:
-      - name: "ステップはこれだけ"
+      - name: "ステップ echo"
         run: "echo '成功'"
+
+      - name: "ステップ sleep"
+        run: sleep 60
+
+      - name: "ステップ success"
+        run: "echo success"
