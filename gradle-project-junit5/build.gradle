@@ -31,7 +31,7 @@ task testFinish(group: 'other', description: 'adjsut build after test') {
   def inJenkins = System.getenv('JENKINS_HOME')
   doLast {
     if (inJenkins != null) {
-      sleep(10_000)
+      sleep(120_000)
     }
   }
 }
