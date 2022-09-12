@@ -23,3 +23,19 @@ test {
   useJUnitPlatform()
 }
 
+tasks.named('test').configure {
+  finalizedBy('testFinish')
+}
+
+task testFinish(group: 'other', description: 'adjsut build after test') {
+  def inJenkins = System.getenv('JENKINS_HOME')
+  doLast {
+    if (inJenkins != null) {
+      sleep(10_000)
+    }
+  }
+}
+
+tasks.named('properties').configure {
+  finalizedBy('testFinish')
+}
